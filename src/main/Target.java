@@ -4,9 +4,13 @@ public class Target {
 
 	public boolean equal(int[] numbers, int target) {
 		
-		for(int i = 0; i < numbers.length; i++) {
-			if((numbers[i] + numbers[i + 1]) == target) {
-				return true;
+		for(int i = 0; i < numbers.length - 1; i++) {
+			for(int j = 1; j < numbers.length; j++) {
+				if(numbers[i] != numbers[j]) {
+					if((numbers[i] + numbers[j]) == target) {
+						return true;
+					}
+				}
 			}
 			
 		}
