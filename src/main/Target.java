@@ -1,3 +1,5 @@
+//Henry Tran
+
 package main;
 
 public class Target {
@@ -15,8 +17,7 @@ public class Target {
 						return true;
 					}
 				}
-			}
-			
+			}	
 		}
 		
 		return false;

@@ -1,3 +1,5 @@
+//Henry Tran
+
 package test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -33,8 +35,10 @@ public class JTest {
 	void arrayDifferentNumbers() {
 		var check = new Target();
 		int[] arraySame = {2,2,3,4,4};
+		int[] negArraySame = {-2,-2,-3,-4,-4};
 		int[] arrayDifferent = {1,3,5,7,9};
 		assertEquals(false, check.equal(arraySame, 4));
+		assertEquals(false, check.equal(negArraySame, -4));
 		assertEquals(true, check.equal(arrayDifferent, 12));
 	}
 	
@@ -50,7 +54,7 @@ public class JTest {
 	@Test
 	void arrayIsTrue() {
 		var isTrue = new Target();
-		int[] array = {1,3,5,4,7,8};
+		int[] array = {1,2,3,4,5,6,7,8};
 		int[] array2 = {11,35,32,53,12};
 		assertEquals(true, isTrue.equal(array, 11));
 		assertEquals(true, isTrue.equal(array2, 67));
@@ -80,22 +84,36 @@ public class JTest {
 	}
 	
 	@Test
+	void arrayFirstTwoElements() {
+		var first = new Target();
+		int[] array = {23,38,1,34,88,73,45,93,17};
+		int[] array2 = {44,22,11,55,66,77,99,44};
+		assertEquals(true, first.equal(array, 61));
+		assertEquals(true, first.equal(array2, 66));
+	}
+	
+	@Test
 	void arrayIsNegative() {
 		var negative = new Target();
 		int[] nNumbers = {-2,-3,-5,-11,-56,-32};
+		int[] mixNumbers = {-3,4,22,-67,-34,75};
+		
 		assertEquals(true, negative.equal(nNumbers, -34));
-		assertEquals(true, negative.equal(nNumbers, -5));
 		assertEquals(true, negative.equal(nNumbers, -16));
 		//Same integer but it's positive instead.
 		assertEquals(false, negative.equal(nNumbers, 16));
+		//Mix of positive and negative integers
+		assertEquals(true, negative.equal(mixNumbers, 1));
+		assertEquals(true, negative.equal(mixNumbers, -70));
 	}
 	
 	@Test 
 	void arrayMultipleElementPairs() {
-		//Multiple element pairs that can add to target.
+		//Multiple element pairs that can add to the target.
 		var multiple = new Target();
 		int[] array = {1,23,1,20,4,8,16,5,19,14,10};
-		assertEquals(true, multiple.equal(array, 24));
-		
+		int[] array2 = {2,6,1,3,7,5,4,4,};
+		assertEquals(true, multiple.equal(array, 24));	
+		assertEquals(true, multiple.equal(array2, 8));
 	}
 }
